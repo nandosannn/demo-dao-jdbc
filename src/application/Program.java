@@ -17,24 +17,24 @@ public class Program {
 
         System.out.println("=== TESTE 1: FIND BY ID ===");
         System.out.println(seller);
+        Department department = new Department(2, null);
+        List<Seller> listSeller = sellerDao.findByDepartments(department.getId());
 
-        List<Seller> listSeller = sellerDao.findByDepartments(2);
-
-        System.out.println("\n=== TESTE 1: FIND BY DEPARTMENTS ===");
+        System.out.println("\n=== TESTE 2: FIND BY DEPARTMENTS ===");
         for(Seller sl : listSeller){
             System.out.println(sl);
         }
 
         List<Seller> listAllSeller = sellerDao.findAll();
 
-        System.out.println("\n=== TESTE 2: FIND ALL ===");
+        System.out.println("\n=== TESTE 3: FIND ALL ===");
         for(Seller sl : listAllSeller){
             System.out.println(sl);
         }
 
-
-
-
-
+        System.out.println("\n=== TESTE 4: INSERT ===");
+        Seller sellerNew = new Seller(null, "Greg", "greg@gmail.com", new Date(), 4000.0, department);
+        sellerDao.insert(sellerNew);
+        System.out.println("Inserted! New id = " + sellerNew.getId());
     }
 }
