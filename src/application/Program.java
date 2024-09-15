@@ -14,6 +14,7 @@ public class Program {
 
         Seller seller = sellerDao.findById(3);
 
+        System.out.println("=== TESTE 1: FIND BY ID ===");
         System.out.println(seller);
 
 
